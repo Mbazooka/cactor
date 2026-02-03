@@ -5,8 +5,20 @@
 #ifndef CACTOR_ACTORREF_H
 #define CACTOR_ACTORREF_H
 
+#include "Actor.h"
+#include "Mailbox.h"
 
 class ActorRef {
+
+public:
+    ActorRef();
+
+private:
+    Actor actor;
+    Mailbox mailbox;
+
+
+
 };
 
 

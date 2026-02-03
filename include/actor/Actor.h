@@ -10,6 +10,12 @@
 
 class Actor {
 
+public:
+    Actor(Behavior beh);
+    void change_behavior(Behavior beh);
+
+private:
+    Behavior beh;
 
 };
 
