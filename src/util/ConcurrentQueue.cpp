@@ -6,13 +6,13 @@
 
 template<typename T>
 void ConcurrentQueue<T>::enqueue(T value) {
-    std::lock_guard<std::recursive_mutex> lock(m);
+    std::lock_guard lock(m);
     q.push(value);
 }
 
 template<typename T>
 T ConcurrentQueue<T>::dequeue() {
-    std::lock_guard<std::recursive_mutex> lock(m);
+    std::lock_guard lock(m);
     if (!q.empty()) {
         T value = q.front();
         q.pop();
@@ -24,6 +24,6 @@ T ConcurrentQueue<T>::dequeue() {
 
 template<typename T>
 bool ConcurrentQueue<T>::is_queued() {
-    std::lock_guard<std::recursive_mutex> lock(m);
+    std::lock_guard lock(m);
     return !q.empty();
 }

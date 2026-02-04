@@ -15,6 +15,7 @@ public:
     ConcurrentQueue() = default;
     void enqueue(T value);
     T dequeue();
+    // Determines whether the queue is non-empty. Bad interleavings may occur
     bool is_queued();
 
 private:
