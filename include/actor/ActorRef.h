@@ -15,9 +15,7 @@ public:
 
 private:
     Actor actor;
-    Mailbox mailbox;
-
-
+    //Mailbox mailbox;
 
 };
 
