@@ -1,3 +1,4 @@
 CMakeLists.txt
 .idea/
 main.cpp
+.DS_Store

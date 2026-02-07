@@ -5,17 +5,17 @@
 #ifndef CACTOR_ACTOR_H
 #define CACTOR_ACTOR_H
 
-#include "Behavior.h"
+#include "behavior.h"
 
 
-class Actor {
+class actor {
 
 public:
-    Actor(Behavior beh);
-    void change_behavior(Behavior beh);
+    actor(behavior beh);
+    void change_behavior(behavior beh);
 
 private:
-    Behavior beh;
+    behavior beh;
 
 };
 

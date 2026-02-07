@@ -6,7 +6,7 @@
 #define CACTOR_BEHAVIOR_H
 
 
-class Behavior {
+class behavior {
 };
 
 
