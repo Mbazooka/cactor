@@ -4,16 +4,15 @@
 
 #ifndef CACTOR_CONTEXT_H
 #define CACTOR_CONTEXT_H
-#include "actorRef.h"
+#include "ActorRef.h"
 
-class context {
-
-public:
-    context() = default;
-
-    ~context() = default;
+class ActorContext {
 
 private:
+    ActorContext() = default;
+
+    ~ActorContext() = default;
+
 
 
 };

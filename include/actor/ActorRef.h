@@ -5,18 +5,23 @@
 #ifndef CACTOR_ACTORREF_H
 #define CACTOR_ACTORREF_H
 
-#include "actor.h"
-#include "mailbox.h"
+#include "Actor.h"
+#include "Mailbox.h"
+#include "Behavior.h"
 
-class actorRef {
+template <typename T> requires std::is_aggregate_v<T>
+class ActorRef {
 
 public:
-    actorRef();
+    ActorRef(/*Initial behavior, message types*/) = default;
+
+    ~ActorRef() = default;
+
+    void process_message(const ActorContext ctx) {};
 
 private:
-    actor actor;
-    //Mailbox<> mailbox;
-
+    std::unique_ptr<Actor<T>> actor;
+    std::unique_ptr<Mailbox<T>> mailbox;
 };
 
 

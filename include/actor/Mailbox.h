@@ -10,16 +10,16 @@
 // Make it lock free
 
 template <typename T> requires std::is_aggregate_v<T>
-class mailbox {
+class Mailbox {
 
 public:
-    mailbox() = default;
+    Mailbox() = default;
     void send_message(T value) {
         std::lock_guard lock(m);
         q.push(value);
     }
 
-    ~mailbox() = default;
+    ~Mailbox() = default;
 
     std::optional<T> get_message() {
         std::lock_guard lock(m);

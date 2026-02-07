@@ -5,17 +5,22 @@
 #ifndef CACTOR_ACTOR_H
 #define CACTOR_ACTOR_H
 
-#include "behavior.h"
+#include "Behavior.h"
 
+// Shared pointers?
 
-class actor {
+template <typename T> requires std::is_aggregate_v<T>
+class Actor {
 
 public:
-    actor(behavior beh);
-    void change_behavior(behavior beh);
+    Actor(Behavior<T> beh) : beh(beh) {};
+
+    void change_behavior(Behavior<T> behavior) {
+        this->beh = behavior;
+    };
 
 private:
-    behavior beh;
+    Behavior<T> beh;
 
 };
 
