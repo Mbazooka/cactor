@@ -14,7 +14,7 @@ class mailbox {
 
 public:
     mailbox() = default;
-    void add_message(T value) {
+    void send_message(T value) {
         std::lock_guard lock(m);
         q.push(value);
     }
