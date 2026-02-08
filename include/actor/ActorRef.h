@@ -15,7 +15,9 @@ template <typename T> requires std::is_aggregate_v<T>
 class ActorRef {
 
 public:
-    ActorRef(Behavior<T> behavior) : actor(new Actor<T>), mailbox(new Mailbox<T>) {
+    ActorRef(std::shared_ptr<Behavior<T>> behavior)
+    : actor(std::make_unique<Actor<T>>(behavior)),
+    mailbox(std::make_unique<Mailbox<T>>()) {
         std::cout << "Created actorRef" << std::endl;
     };
 
@@ -28,7 +30,7 @@ public:
     bool process_message(const ActorContext context) {
         std::optional<T> optionalMessage(mailbox->get_message());
         if (optionalMessage.has_value()) {
-            actor->beh.onReceiveMessage(context, optionalMessage.value());
+            actor->get_behavior()->onReceiveMessage(context, optionalMessage.value());
             return true;
         } else {
             return false;

@@ -5,6 +5,7 @@
 #ifndef CACTOR_MAILBOX_H
 #define CACTOR_MAILBOX_H
 #include <queue>
+#include <iostream>
 
 // TO DO:
 // Make it lock free
@@ -17,6 +18,7 @@ public:
     void send_message(T value) {
         std::lock_guard lock(m);
         q.push(value);
+        std::cout << "Received" << std::endl;
     }
 
     ~Mailbox() = default;

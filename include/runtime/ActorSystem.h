@@ -5,6 +5,7 @@
 #ifndef CACTOR_ACTORSYSTEM_H
 #define CACTOR_ACTORSYSTEM_H
 
+// Starts the scheduler
 
 class ActorSystem {
 };

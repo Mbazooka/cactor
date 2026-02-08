@@ -11,9 +11,6 @@ public:
     virtual void onReceiveMessage(ActorContext context, T message) =0;
 
     virtual ~Behavior() = default;
-
-private:
-    const ActorContext context;
 };
 
 

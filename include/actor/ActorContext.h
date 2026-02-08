@@ -4,7 +4,6 @@
 
 #ifndef CACTOR_CONTEXT_H
 #define CACTOR_CONTEXT_H
-#include "ActorRef.h"
 
 // Short-lived created by the runtime
 
