@@ -9,15 +9,31 @@
 #include "Mailbox.h"
 #include "Behavior.h"
 
+#include <iostream>
+
 template <typename T> requires std::is_aggregate_v<T>
 class ActorRef {
 
 public:
-    ActorRef(/*Initial behavior, message types*/) = default;
+    ActorRef(Behavior<T> behavior) : actor(new Actor<T>), mailbox(new Mailbox<T>) {
+        std::cout << "Created actorRef" << std::endl;
+    };
 
     ~ActorRef() = default;
 
-    void process_message(const ActorContext ctx) {};
+    void send_message(T message) {
+        mailbox->send_message(message);
+    };
+
+    bool process_message(const ActorContext context) {
+        std::optional<T> optionalMessage(mailbox->get_message());
+        if (optionalMessage.has_value()) {
+            actor->beh.onReceiveMessage(context, optionalMessage.value());
+            return true;
+        } else {
+            return false;
+        }
+    };
 
 private:
     std::unique_ptr<Actor<T>> actor;

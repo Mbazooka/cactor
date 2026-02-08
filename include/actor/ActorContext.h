@@ -6,12 +6,19 @@
 #define CACTOR_CONTEXT_H
 #include "ActorRef.h"
 
+// Short-lived created by the runtime
+
 class ActorContext {
 
-private:
+public:
     ActorContext() = default;
 
     ~ActorContext() = default;
+
+    // To be adjusted
+    int spawn() {
+        return 0;
+    };
 
 
 

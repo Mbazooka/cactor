@@ -15,8 +15,14 @@ class Actor {
 public:
     Actor(Behavior<T> beh) : beh(beh) {};
 
+    ~Actor() = default;
+
     void change_behavior(Behavior<T> behavior) {
         this->beh = behavior;
+    };
+
+    Behavior<T> get_behavior() {
+      return this->beh;
     };
 
 private:
